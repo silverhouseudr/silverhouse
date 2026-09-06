@@ -1,0 +1,100 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI';
+  background-image: url('../images/bg.jpg');
+}
+.header{
+  background-image: url('../images/header.jpg');
+}
+.navbar {
+  background: white;
+  padding: 15px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+}
+
+.hero {
+  position: relative;
+}
+
+.hero img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}
+
+.hero-text {
+  position: absolute;
+  top: 40%;
+  left: 10%;
+  color: white;
+  font-size: 28px;
+}
+
+.filter {
+  text-align: center;
+  padding: 15px;
+}
+
+.filter button {
+  margin: 5px;
+  padding: 10px 15px;
+  border: none;
+  background: black;
+  color: white;
+  cursor: pointer;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+.card {
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: 0.3s;
+  cursor: pointer;
+  margin:10px;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+}
+
+.card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+
+.card-content {
+  padding: 12px;
+}
+
+.price {
+  color: #b12704;
+  font-weight: bold;
+}
+
+.product-detail {
+  text-align: center;
+  padding: 30px;
+}
+
+.product-detail img {
+  width: 300px;
+}
+
+.whatsapp-btn {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 10px 20px;
+  background: green;
+  color: white;
+  text-decoration: none;
+}
+          
