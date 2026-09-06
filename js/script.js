@@ -1,10 +1,10 @@
 let allProducts = [
   {
     "id": 1,
-    "name": "Silver Ring",
+    "name": "Silver Necklace",
     "price": 1200,
     "image": "images/images.jpeg",
-    "description": "Pure silver ring"
+    "description": "Pure silver Necklace"
   },
   {
     "id": 2,
@@ -38,7 +38,7 @@ let allProducts = [
       "id": 6,
       "name": "Silver Ring",
       "price": "3XXX",
-      "image": "images/images6.jpg",
+      "image": "images/images6.jpeg",
       "description": "Elegant silver ring"
     },
     {
