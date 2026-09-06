@@ -40,5 +40,33 @@
       "price": "3XXX",
       "image": "images/images6.jpg",
       "description": "Elegant silver ring"
+    },
+    {
+      "id": 7,
+      "name": "Silver Kada",
+      "price": "2XXX",
+      "image": "images/images7.jpeg",
+      "description": "Elegant silver kada"
+    },
+    {
+      "id": 8,
+      "name": "Silver Kada",
+      "price": "2XXX",
+      "image": "images/images8.jpeg",
+      "description": "Elegant silver kada"
+    },
+    {
+      "id": 9,
+      "name": "Silver Kada",
+      "price": "2XXX",
+      "image": "images/images9.jpeg",
+      "description": "Elegant silver kada"
+    },
+    {
+      "id": 10,
+      "name": "Silver Ring",
+      "price": "1XXX",
+      "image": "images/images10.jpeg",
+      "description": "Elegant silver ring"
     }
   ]
