@@ -91,7 +91,7 @@ document.addEventListener("DOMContentLoaded", () => {
         <h3 class="price">₹${product.price}</h3>
 
         <a class="whatsapp-btn" 
-           href="https://wa.me/91XXXXXXXXXX?text=I am interested in ${product.name}"
+           href="https://wa.me/917014220167?text=I am interested in ${product.name}"
            target="_blank">
            Enquire on WhatsApp
         </a>
