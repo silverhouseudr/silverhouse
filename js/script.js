@@ -1,75 +1,81 @@
-let allProducts = [
-  {
-    "id": 1,
-    "name": "Silver Necklace",
-    "price": 1200,
-    "image": "images/images.jpeg",
-    "description": "Pure silver Necklace"
-  },
-  {
-    "id": 2,
-    "name": "Silver Necklace",
-    "price": 3500,
-    "image": "images/images2.jpeg",
-    "description": "Elegant silver necklace"
-  },
-  {
-    "id": 3,
-    "name": "Silver Necklace",
-    "price": 3500,
-    "image": "images/images3.jpeg",
-    "description": "Elegant silver necklace"
-  },
-  {
-    "id": 4,
-    "name": "Silver Necklace",
-    "price": 3500,
-    "image": "images/images4.jpeg",
-    "description": "Elegant silver necklace"
-  },
-  {
-    "id": 5,
-    "name": "Silver Necklace",
-    "price": 3500,
-    "image": "images/images5.jpeg",
-    "description": "Elegant silver necklace"
-  },
-       {
-      "id": 6,
-      "name": "Silver Ring",
-      "price": "3XXX",
-      "image": "images/images6.jpeg",
-      "description": "Elegant silver ring"
-    },
-    {
-      "id": 7,
-      "name": "Silver Kada",
-      "price": "2XXX",
-      "image": "images/images7.jpeg",
-      "description": "Elegant silver kada"
-    },
-    {
-      "id": 8,
-      "name": "Silver Kada",
-      "price": "2XXX",
-      "image": "images/images8.jpeg",
-      "description": "Elegant silver kada"
-    },
-    {
-      "id": 9,
-      "name": "Silver Kada",
-      "price": "2XXX",
-      "image": "images/images9.jpeg",
-      "description": "Elegant silver kada"
-    },
-    {
-      "id": 10,
-      "name": "Silver Ring",
-      "price": "1XXX",
-      "image": "images/images10.jpeg",
-      "description": "Elegant silver ring"
-    }
-];
+let allProducts = window.allProducts || [];
+let activeMaterial = "all";
+let selectedTypes = {
+  silver: new Set(["ring", "necklace", "kada"]),
+  oxidized: new Set(["ring", "necklace", "kada"])
+};
+
+function loadProducts() {
+  setupFilterControls();
+  renderProducts(allProducts);
+  renderProductDetail();
+}
+
+function setupFilterControls() {
+  const filterButtons = document.querySelectorAll(".filter-btn[data-filter]");
+  const optionGroups = document.querySelectorAll(".filter-options");
+
+  filterButtons.forEach(button => {
+    button.addEventListener("click", () => {
+      const filter = button.dataset.filter;
+      activeMaterial = filter;
+
+      document.querySelectorAll(".filter-btn[data-filter]").forEach(btn => {
+        btn.classList.toggle("active", btn.dataset.filter === filter);
+      });
+
+      optionGroups.forEach(group => {
+        const shouldShow = group.dataset.material === filter && filter !== "all";
+        group.style.display = shouldShow ? "block" : "none";
+      });
+
+      applyFilters();
+    });
+  });
+
+  optionGroups.forEach(group => {
+    group.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
+      checkbox.addEventListener("change", () => {
+        const material = group.dataset.material;
+        const checkedValues = Array.from(
+          group.querySelectorAll('input[type="checkbox"]:checked')
+        ).map(input => input.value.toLowerCase());
+
+        selectedTypes[material] = new Set(checkedValues);
+        applyFilters();
+      });
+    });
+  });
+}
+
+function normalizeCategory(category) {
+  return String(category || "").trim().toLowerCase();
+}
+
+function getProductType(productName) {
+  const name = productName.toLowerCase();
+
+  if (name.includes("ring")) return "ring";
+  if (name.includes("necklace")) return "necklace";
+  if (name.includes("kada")) return "kada";
+
+  return "";
+}
+
+function applyFilters() {
+  let filteredProducts = [...allProducts];
+
+  if (activeMaterial !== "all") {
+    filteredProducts = filteredProducts.filter(product => {
+      const categoryMatch = normalizeCategory(product.category) === activeMaterial;
+      const type = getProductType(product.name);
+      const typeAllowed = selectedTypes[activeMaterial].has(type);
+      return categoryMatch && typeAllowed;
+    });
+  }
+
+  renderProducts(filteredProducts);
+}
 
 // Render Products
 function renderProducts(products) {
@@ -100,37 +106,38 @@ function renderProducts(products) {
 
 // Filter
 function filterProducts(category) {
-  if (category === "all") {
-    renderProducts(allProducts);
-  } else {
-    const filtered = allProducts.filter(p => p.category === category);
-    renderProducts(filtered);
+  const normalizedCategory = category.toLowerCase();
+
+  const filtered = normalizedCategory === "all"
+    ? allProducts
+    : allProducts.filter(product => product.name.toLowerCase().includes(normalizedCategory));
+
+  renderProducts(filtered);
+}
+
+function renderProductDetail() {
+  const productDetail = document.getElementById("product-detail");
+
+  if (!productDetail) return;
+
+  const id = new URLSearchParams(window.location.search).get("id");
+  const product = allProducts.find(item => item.id == id);
+
+  if (product) {
+    productDetail.innerHTML = `
+      <h2>${product.name}</h2>
+      <img src="${product.image}" />
+      <p>${product.description}</p>
+      <h3 class="price">₹${product.price}</h3>
+
+      <a class="whatsapp-btn" 
+         href="https://wa.me/917014220167?text=I am interested in ${product.name}"
+         target="_blank">
+         Enquire on WhatsApp
+      </a>
+    `;
   }
 }
 
 // Load Page
-document.addEventListener("DOMContentLoaded", () => {
-  renderProducts(allProducts);
-
-  const productDetail = document.getElementById("product-detail");
-
-  if (productDetail) {
-    const id = new URLSearchParams(window.location.search).get("id");
-    const product = allProducts.find(p => p.id == id);
-
-    if (product) {
-      productDetail.innerHTML = `
-        <h2>${product.name}</h2>
-        <img src="${product.image}" />
-        <p>${product.description}</p>
-        <h3 class="price">₹${product.price}</h3>
-
-        <a class="whatsapp-btn" 
-           href="https://wa.me/917014220167?text=I am interested in ${product.name}"
-           target="_blank">
-           Enquire on WhatsApp
-        </a>
-      `;
-    }
-  }
-});
+document.addEventListener("DOMContentLoaded", loadProducts);

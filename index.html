@@ -13,20 +13,38 @@
 </header>
 
 <section class="hero">
-  <img src="images/header.jpg" />
+  <img class="hero-image hero-image-1" src="images/header.jpg" />
+  <img class="hero-image hero-image-2" src="images/header3.jpg" />
   <div class="hero-text">
     
   </div>
 </section>
 
 <section class="filter">
-  <button onclick="filterProducts('all')">All</button>
-  <button onclick="filterProducts('ring')">Rings</button>
-  <button onclick="filterProducts('necklace')">Necklace</button>
+  <button type="button" class="filter-btn active" data-filter="all">All</button>
+
+  <div class="filter-group">
+    <button type="button" class="filter-btn" data-filter="silver">Silver</button>
+    <div class="filter-options" data-material="silver" style="display: none;">
+      <label><input type="checkbox" value="ring" checked> Ring</label>
+      <label><input type="checkbox" value="necklace" checked> Necklace</label>
+      <label><input type="checkbox" value="kada" checked> Kada</label>
+    </div>
+  </div>
+
+  <div class="filter-group">
+    <button type="button" class="filter-btn" data-filter="oxidized">Oxidized</button>
+    <div class="filter-options" data-material="oxidized" style="display: none;">
+      <label><input type="checkbox" value="ring" checked> Ring</label>
+      <label><input type="checkbox" value="necklace" checked> Necklace</label>
+      <label><input type="checkbox" value="kada" checked> Kada</label>
+    </div>
+  </div>
 </section>
 
 <section class="container" id="product-list"></section>
 
+<script src="js/products.js"></script>
 <script src="js/script.js"></script>
 </body>
 </html>
