@@ -75,6 +75,67 @@ window.allProducts = [
     "name": "Silver Ring",
     "price": "1XXX",
     "image": "images/images10.jpeg",
-    "category": "silver"
-  }
+    "category": "silver"  },
+  {
+    "id": 11,
+    "name": "Oxidized emerald styled Kada",
+    "price": "7XX",
+    "image": "images/kada1.jpeg",
+    "category": "oxidized"
+  },
+  {
+    "id": 12,
+    "name": "Oxidized Kada",
+    "price": "7XX",
+    "image": "images/kada2.jpeg",
+    "category": "oxidized"
+  },
+  {
+    "id": 13,
+    "name": "Oxidized Kada",
+    "price": "7XX",
+    "image": "images/kada3.jpeg",
+    "category": "oxidized"
+  },
+  {
+    "id": 14,
+    "name": "Oxidized Kada",
+    "price": "7XX",
+    "image": "images/kada 4.jpeg",
+    "category": "oxidized"
+  },
+  {
+    "id": 15,
+    "name": "Oxidized Kada",
+    "price": "7XX",
+    "image": "images/kada5.jpeg",
+    "category": "oxidized"
+  },
+  {
+    "id": 16,
+    "name": "Oxidized Kada",
+    "price": "7XX",
+    "image": "images/kada6.jpeg",
+    "category": "oxidized"
+  },
+  {
+    "id": 17,
+    "name": "Oxidized Elephant Kada",
+    "price": "7XX",
+    "image": "images/kada7.jpeg",
+    "category": "oxidized"
+  },
+  {
+    "id": 18,
+    "name": "Oxidized Kada",
+    "price": "7XX",
+    "image": "images/kada8.jpeg",
+    "category": "oxidized"
+  },
+  {
+    "id": 19,
+    "name": "Oxidized silverKada",
+    "price": "7XX",
+    "image": "images/kada silver.jpeg",
+    "category": "oxidized"  }
 ];
