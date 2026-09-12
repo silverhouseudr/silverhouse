@@ -69,5 +69,12 @@ window.allProducts = [
     "price": "1XXX",
     "image": "images/images10.jpeg",
     "category": "silver"
+  },
+  {
+    "id": 11,
+    "name": "Silver Ring",
+    "price": "1XXX",
+    "image": "images/images10.jpeg",
+    "category": "silver"
   }
 ];
